@@ -6,7 +6,9 @@ python -m venv venv
 # El ambiente se crea pero no se encuentra activo
 # La forma de activarlo en windows es:
 venv\scripts\activate
-# Si se presentan errores ejecutar en consola: 
+# La forma de activarlo en linux es source:
+source venv/Scripts/activate
+# Si se presentan errores ejecutar en consola:
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 # Instalar las siguientes librerias
 pip install pandas
