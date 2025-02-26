@@ -37,3 +37,8 @@ python main.py
 # 1. Jeicson Andres Zuñiga Olmos
 # 2. Carlos Fernando Escobar
 # Proyecto Curso ETL - Maestria en IA.
+# Para entornos virtuales usar:
+# Copiar las dependencias
+pip freeze > requirements.txt
+# Importar las dependencias
+pip install -r requirements.txt
