@@ -1,0 +1,46 @@
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+deliverables
+github repository with:
+relevant code
+readme file with all the context, instruction to use repository and considerations
+gitignore in order to only include relevant files into the repository
+documentation
+problem description
+context
+dataset description
+process
+evidences
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+entregables
+repositorio de github con:
+código relevante
+Archivo Léame con todo el contexto, instrucciones para usar el repositorio y consideraciones.
+gitignore para incluir solo archivos relevantes en el repositorio
+documentación
+descripción del problema
+contexto
+descripción del conjunto de datos
+proceso
+evidencias
+--------------------------------------------------------------------------------
+nombre_entidad
+departamento
+ciudad
+orden
+sector
+rama
+estado_contrato
+tipo_de_contrato
+modalidad_de_contratacion
+documento_proveedor
+destino_gasto
+valor_del_contrato
+nacionalidad_representante_legal
+g_nero_representante_legal
+fecha_de_firma
+fecha_de_inicio_del_contrato
+fecha_de_fin_del_contrato
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
