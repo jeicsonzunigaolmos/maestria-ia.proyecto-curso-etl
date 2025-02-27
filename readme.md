@@ -38,6 +38,15 @@ pip freeze > requirements.txt
 pip install -r requirements.txt
 # Dirijase a la carpeta proyectoetl y ejecute el siguiente comando:
 python main.py
+# Instalacion de postgres
+sudo apt install postgresql postgresql-contrib
+sudo systemctl status postgresql
+sudo -i -u postgres
+psql
+ALTER USER postgres WITH PASSWORD 'contraseña';
+sudo -i -u postgres
+psql -d etl_proyecto_curso
+\q
 # Autores:
 # 1. Jeicson Andres Zuñiga Olmos
 # 2. Carlos Fernando Escobar
