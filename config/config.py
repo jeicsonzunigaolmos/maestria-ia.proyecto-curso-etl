@@ -11,7 +11,7 @@ class Config:
         config = config[tipo_config]
         return config
     @staticmethod
-    def load_config(file_path="config.yaml"):
+    def load_config(file_path="config/config.yaml"):
         """
             se define una funncion para cargar los archivos .yaml que van a contener
             informacion del archivo de configuracion de base de datos y apikey de la 

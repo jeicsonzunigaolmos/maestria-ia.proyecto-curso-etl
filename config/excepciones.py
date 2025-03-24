@@ -40,6 +40,9 @@ def excepciones_datos_faltantes(fila):
         retorna el resultado
     """
     return objeto_json
+def limpiar_archivo_excepciones():
+    with open('data/excepciones.txt', 'w', encoding='utf-8') as archivo:
+        return True
 def excepciones_formato_mal_formado(fila):
     #fila = fila.replace("\\", "")
     #fila = fila.replace(", }", " }")

@@ -1,4 +1,4 @@
-config.yaml
-documentacion
-venv
-data
+config/config.yaml
+documentacion/
+venv/
+data/

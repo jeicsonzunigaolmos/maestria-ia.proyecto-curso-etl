@@ -8,6 +8,7 @@ python -m venv venv
 venv\scripts\activate
 # La forma de activarlo en linux es source:
 source venv/Scripts/activate
+source venv/bin/activate
 # Si se presentan errores ejecutar en consola:
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 # Instalar las siguientes librerias

@@ -3,35 +3,27 @@
     realizamos toda la importacion de librerias que vamso a usar
 """
 from sodapy import Socrata
-import json
-import psycopg2
 from psycopg2 import sql
 from sqlalchemy import create_engine, text
 from sqlalchemy import text
-import config.consultas_sql as consultas_sql
-import config.excepciones as excepciones
 from config.config import Config
 from datetime import datetime
+from config.conexion_postgres import ConexionPostgres
+import config.consultas_sql as consultas_sql
+import config.excepciones as excepciones
 import config.transformaciones as transformaciones
 import config.validaciones as validaciones
+import json
+import psycopg2
 class Transformacion:
     def __init__(self):
         ...
     """
         se consulta toda la informacion de la base de datos
     """
-    def consultar_informacion_database(self):
-        config = Config()
-        configDataBase = config.retornar_config_por_nombre("configDataBase")
-        db_name = "etl_proyecto_curso"
-        engine = create_engine(f"postgresql://{configDataBase["usuario"]}:{configDataBase["contrasena"]}@{configDataBase["host"]}:{configDataBase["puerto"]}/{db_name}")
-        resultado = None
-        lista_dicionario = []
-        with engine.connect() as conn:
-            with conn.begin():
-                resultado = conn.execute(text(consultas_sql.consultar_datos_database()))
-        for registro in resultado:
-            lista_dicionario.append(dict(registro._mapping))
+    def consultar_informacion_apl1_contrato_digital(self):
+        conexion_postgres = ConexionPostgres()
+        lista_dicionario = conexion_postgres.ejecutar_select(consultas_sql.consultar_datos_apl1_contrato_digital())
         return lista_dicionario
     """
         empieza el proceso de filtro de la informacion de interes que se requiere
@@ -126,6 +118,6 @@ class Transformacion:
             else:
                 dicionario["contratos_inferiores_2024_pendientes_pago"] = None
         return lista_dicionario
-    def almacenar_datos(self, lista_dicionario):
+    def almacenar_datos_formato_json(self, lista_dicionario):
         with open('data/transformaciones.json', 'w', encoding='utf-8') as archivo:
             json.dump(lista_dicionario, archivo, ensure_ascii=False, indent=4)

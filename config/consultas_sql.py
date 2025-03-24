@@ -2,7 +2,7 @@
     funciones que contienen todas las instrucciones sql que se van a utilizar 
     durante el proceso de extraccion, transformacion y carga de datos.
 """
-def sql_crear_tabla_apl1_contrato_digital():
+def crear_tabla_apl1_contrato_digital():
     sql = """
         CREATE TABLE IF NOT EXISTS apl1_contrato_digital (
             id SERIAL PRIMARY KEY,
@@ -88,6 +88,9 @@ def sql_crear_tabla_apl1_contrato_digital():
             tipo_de_documento_ordenador_de_pago VARCHAR(4000),
             n_mero_de_documento_ordenador_de_pago VARCHAR(4000)
         );"""
+    return sql
+def limpiar_tabla_apl1_contrato_digital():
+    sql = "delete from apl1_contrato_digital"
     return sql
 def insert_apl1_contrato_digital():
     sql = """
@@ -255,7 +258,7 @@ def insert_apl1_contrato_digital():
 		,   :n_mero_de_documento_ordenador_de_pago
 	)"""
     return sql
-def consultar_datos_database():
+def consultar_datos_apl1_contrato_digital():
     sql = """
 		select departamento
         ,	ciudad
@@ -276,4 +279,107 @@ def consultar_datos_database():
         ,	descripcion_del_proceso
  		from apl1_contrato_digital
 	"""
+    return sql
+def crear_tabla_apl1_consolidado():
+    sql = """
+        CREATE TABLE IF NOT EXISTS apl1_consolidado (
+            id SERIAL PRIMARY KEY,   
+            departamento VARCHAR(4000),
+            ciudad VARCHAR(4000),
+            orden VARCHAR(4000),
+            sector VARCHAR(4000),
+            rama VARCHAR(4000),
+            estado_contrato VARCHAR(4000),
+            tipo_de_contrato VARCHAR(4000),
+            fecha_de_firma TIMESTAMP,
+            fecha_de_inicio_del_contrato TIMESTAMP,
+            fecha_de_fin_del_contrato TIMESTAMP,
+            destino_gasto VARCHAR(4000),
+            valor_del_contrato BIGINT,
+            valor_pendiente_de_pago BIGINT,
+            tipodocproveedor VARCHAR(4000),
+            documento_proveedor VARCHAR(4000),
+            proveedor_adjudicado VARCHAR(4000),
+            descripcion_del_proceso VARCHAR(4000),
+            fecha_de_firma_dia BIGINT,
+            fecha_de_firma_mes BIGINT,
+            fecha_de_firma_anio BIGINT,
+            fecha_de_inicio_del_contrato_dia BIGINT,
+            fecha_de_inicio_del_contrato_mes BIGINT,
+            fecha_de_inicio_del_contrato_anio BIGINT,
+            fecha_de_fin_del_contrato_dia BIGINT,
+            fecha_de_fin_del_contrato_mes BIGINT,
+            fecha_de_fin_del_contrato_anio BIGINT,
+            clasificacion_valor_del_contrato VARCHAR(4000),
+            valor_pendiente_por_ejecutar BIGINT,
+            porcentaje_valor_contrato_ejecutado BIGINT,
+            contratos_inferiores_2024_pendientes_pago VARCHAR(4000)
+        );"""
+    return sql
+def limpiar_tabla_apl1_consolidado():
+    sql = "delete from apl1_consolidado"
+    return sql
+def insert_apl1_consolidado():
+    sql = """
+    	INSERT INTO apl1_consolidado (departamento,
+            ciudad,
+            orden,
+            sector,
+            rama,
+            estado_contrato,
+            tipo_de_contrato,
+            fecha_de_firma,
+            fecha_de_inicio_del_contrato,
+            fecha_de_fin_del_contrato,
+            destino_gasto,
+            valor_del_contrato,
+            valor_pendiente_de_pago,
+            tipodocproveedor,
+            documento_proveedor,
+            proveedor_adjudicado,
+            descripcion_del_proceso,
+            fecha_de_firma_dia,
+            fecha_de_firma_mes,
+            fecha_de_firma_anio,
+            fecha_de_inicio_del_contrato_dia,
+            fecha_de_inicio_del_contrato_mes,
+            fecha_de_inicio_del_contrato_anio,
+            fecha_de_fin_del_contrato_dia,
+            fecha_de_fin_del_contrato_mes,
+            fecha_de_fin_del_contrato_anio,
+            clasificacion_valor_del_contrato,
+            valor_pendiente_por_ejecutar,
+            porcentaje_valor_contrato_ejecutado,
+            contratos_inferiores_2024_pendientes_pago
+		) VALUES (:departamento,
+            :ciudad,
+            :orden,
+            :sector,
+            :rama,
+            :estado_contrato,
+            :tipo_de_contrato,
+            :fecha_de_firma,
+            :fecha_de_inicio_del_contrato,
+            :fecha_de_fin_del_contrato,
+            :destino_gasto,
+            :valor_del_contrato,
+            :valor_pendiente_de_pago,
+            :tipodocproveedor,
+            :documento_proveedor,
+            :proveedor_adjudicado,
+            :descripcion_del_proceso,
+            :fecha_de_firma_dia,
+            :fecha_de_firma_mes,
+            :fecha_de_firma_anio,
+            :fecha_de_inicio_del_contrato_dia,
+            :fecha_de_inicio_del_contrato_mes,
+            :fecha_de_inicio_del_contrato_anio,
+            :fecha_de_fin_del_contrato_dia,
+            :fecha_de_fin_del_contrato_mes,
+            :fecha_de_fin_del_contrato_anio,
+            :clasificacion_valor_del_contrato,
+            :valor_pendiente_por_ejecutar,
+            :porcentaje_valor_contrato_ejecutado,
+            :contratos_inferiores_2024_pendientes_pago
+		)"""
     return sql
