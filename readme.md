@@ -17,6 +17,7 @@ pip install sodapy
 pip install pyyaml
 pip install psycopg2
 pip install sqlalchemy
+conda install pymysql
 python main.py
 # Cree y configure el archivo .yaml
 <!-->
